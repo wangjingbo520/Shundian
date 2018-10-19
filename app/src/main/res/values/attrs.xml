@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <declare-styleable name="FairySearchView">
+        <attr name="searchViewHeight" format="dimension|reference"/>
+        <attr name="showBackButton" format="boolean"/>
+        <attr name="backIcon" format="reference"/>
+        <attr name="showSearchIcon" format="boolean"/>
+        <attr name="searchIcon" format="reference"/>
+        <attr name="showClearButton" format="boolean"/>
+        <attr name="clearIcon" format="reference"/>
+        <attr name="showCancelButton" format="boolean"/>
+        <attr name="cancelText" format="string|reference"/>
+        <attr name="cancelTextSize" format="dimension|reference"/>
+        <attr name="cancelTextColor" format="color|reference"/>
+        <attr name="searchText" format="string|reference"/>
+        <attr name="searchTextSize" format="dimension|reference"/>
+        <attr name="searchTextColor" format="color|reference"/>
+        <attr name="searchHint" format="string|reference"/>
+        <attr name="searchHintColor" format="color|reference"/>
+        <attr name="maxSearchLength" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <!-- {@deprecated Use civ_circlebackground_color instead.} -->
+        <attr name="civ_fill_color" format="color" />
+        <attr name="civ_circle_background_color" format="color" />
+    </declare-styleable>
+    
+</resources>

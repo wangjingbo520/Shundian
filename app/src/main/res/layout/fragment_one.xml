@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.fragment.HomeFragment">
+
+    <LinearLayout
+        android:id="@+id/llTop"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x85"
+        android:background="@color/themeColor"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/x10"
+        android:paddingBottom="@dimen/x10">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableRight="@mipmap/location"
+            android:drawablePadding="@dimen/x5"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x10"
+            android:text="深圳"
+            android:textColor="@color/white" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/x65"
+            android:layout_marginLeft="@dimen/x10"
+            android:layout_marginRight="@dimen/x10"
+            android:layout_weight="1"
+            android:background="@drawable/bg_search"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x30"
+            android:paddingTop="@dimen/x10"
+            android:paddingRight="@dimen/x30"
+            android:paddingBottom="@dimen/x10">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/search_bar" />
+
+            <EditText
+                android:id="@+id/etSearchs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x15"
+                android:background="@null"
+                android:ellipsize="start"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:hint="输入关键字"
+                android:imeOptions="actionSearch"
+                android:paddingRight="@dimen/x60"
+                android:singleLine="true"
+                android:textColor="@color/textColor6"
+                android:textColorHint="@color/textColor9"
+                android:textSize="@dimen/textSize_32" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivSaomiao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/x10"
+            android:src="@mipmap/sys" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tl_tab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x1"
+            android:layout_weight="1"
+            app:tabIndicatorColor="@color/themeColor"
+            app:tabIndicatorHeight="@dimen/x4"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/themeColor"
+            app:tabTextAppearance="@style/MyTabLayoutTextAppearance" />
+
+        <ImageButton
+            android:id="@+id/iv_edit_fragment"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@color/themeColor"
+            android:padding="8dp"
+            android:src="@mipmap/ic_news_add" />
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/x5" />
+
+</LinearLayout>
