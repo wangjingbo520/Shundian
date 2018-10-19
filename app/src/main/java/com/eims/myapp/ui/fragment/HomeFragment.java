@@ -1,6 +1,7 @@
 package com.eims.myapp.ui.fragment;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,8 +18,10 @@ import android.widget.LinearLayout;
 
 import com.eims.myapp.R;
 import com.eims.myapp.adapter.viewadapter.FindViewpagerAdapter;
+import com.eims.myapp.common.utils.ToastUtil;
 import com.eims.myapp.common.widgets.dialog.TablayoutDialog;
 import com.eims.myapp.common.zxing.ScannerActivity;
+import com.eims.myapp.common.zxing.common.Scanner;
 import com.eims.myapp.ui.activity.SearchActivity;
 import com.eims.myapp.ui.fragment.childfragment.ChildFragment;
 
@@ -47,7 +50,6 @@ public class HomeFragment extends Fragment {
 
     private ArrayList<Fragment> mFragments;
     private String[] mTitles;
-    private TablayoutDialog tablayoutDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable
@@ -59,8 +61,8 @@ public class HomeFragment extends Fragment {
     }
 
     public void init() {
-        etSearch.setInputType(InputType.TYPE_NULL);
-        etSearch.setInputType(InputType.TYPE_NULL);
+//        etSearch.setInputType(InputType.TYPE_NULL);
+//        etSearch.setInputType(InputType.TYPE_NULL);
         fragmentManager = getChildFragmentManager();
         mFragments = new ArrayList<>();
         mTitles = getResources().getStringArray(R.array.tab_home);
@@ -130,11 +132,23 @@ public class HomeFragment extends Fragment {
             default:
                 break;
         }
-//        MenuDialogFragment dialogFragment = MenuDialogFragment.newInstance();
-//        dialogFragment.show(getChildFragmentManager(), "CHANNEL");
-//        tablayoutDialog = new TablayoutDialog(getActivity());
-//        tablayoutDialog.show();
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode != Activity.RESULT_CANCELED && resultCode == Activity.RESULT_OK) {
+            if (requestCode == ScannerActivity.REQUEST_CODE_SCANNER) {
+                if (data != null) {
+                    String stringExtra = data.getStringExtra(Scanner.Scan.RESULT);
+                    ToastUtil.showMessage(stringExtra);
+                    //     tvResult.setText(stringExtra);
+                }
+            } else if (requestCode == 1) {
+                // Data field is content://contacts/people/984
+                //   showContactAsBarcode(data.getData());
+            }
+        }
+    }
 
 }

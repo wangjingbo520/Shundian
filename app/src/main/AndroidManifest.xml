@@ -68,7 +68,7 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
         <activity android:name=".TabViewPagerActivity" />
-        <activity android:name=".ui.activity.ForgetPasswordActivity"></activity>
+        <activity android:name=".ui.activity.ForgetPasswordActivity"/>
     </application>
 
 </manifest>
