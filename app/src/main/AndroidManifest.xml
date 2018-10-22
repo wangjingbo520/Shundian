@@ -15,7 +15,7 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <application
-        android:name="com.eims.shundian.MyApplication"
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -29,7 +29,7 @@
             android:name="android.max_aspect"
             android:value="2.1" />
 
-        <activity android:name="com.eims.shundian.LauchActivity">
+        <activity android:name=".LauchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,80 +37,81 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.eims.shundian.MainActivity"
+            android:name=".MainActivity"
             android:configChanges="keyboardHidden|orientation|fontScale|fontScale"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
         <activity
-            android:name="com.eims.shundian.ScrollingActivity"
+            android:name=".ScrollingActivity"
             android:configChanges="keyboardHidden|orientation|fontScale|fontScale"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
         <activity
-            android:name="com.eims.shundian.ui.activity.LoginActivity"
+            android:name=".ui.activity.LoginActivity"
             android:configChanges="keyboardHidden|orientation|fontScale|fontScale"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
         <activity
-            android:name="com.eims.shundian.ui.activity.RegisterActivity"
+            android:name=".ui.activity.RegisterActivity"
             android:configChanges="keyboardHidden|orientation|fontScale|fontScale"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
         <activity
-            android:name="com.eims.shundian.ui.activity.SearchActivity"
+            android:name=".ui.activity.SearchActivity"
             android:configChanges="keyboardHidden|orientation|fontScale|fontScale"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateAlwaysVisible" />
         <activity
-            android:name="com.eims.shundian.WebViewActivity"
+            android:name=".WebViewActivity"
             android:configChanges="keyboardHidden|orientation|fontScale|fontScale"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
         <activity
-            android:name="com.eims.shundian.TabHomeActivity"
+            android:name=".TabHomeActivity"
             android:configChanges="keyboardHidden|orientation|fontScale|fontScale"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
         <activity
-            android:name="com.eims.shundian.TabViewPagerActivity"
+            android:name=".TabViewPagerActivity"
             android:configChanges="keyboardHidden|orientation|fontScale|fontScale"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
         <activity
-            android:name="com.eims.shundian.ui.activity.ForgetPasswordActivity"
+            android:name=".ui.activity.ForgetPasswordActivity"
             android:configChanges="keyboardHidden|orientation|fontScale|fontScale"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
         /**************************多功能二维码集成*********************************************/
         <activity
-            android:name="com.eims.shundian.common.zxing.UriActivity"
+            android:name=".common.zxing.UriActivity"
             android:label="uri" />
         <activity
-            android:name="com.eims.shundian.common.zxing.AddressBookActivity"
+            android:name=".common.zxing.AddressBookActivity"
             android:label="addressBook" />
         <activity
-            android:name="com.eims.shundian.common.zxing.TextActivity"
+            android:name=".common.zxing.TextActivity"
             android:label="text" />
         <activity
-            android:name="com.eims.shundian.common.zxing.picture.PickPictureTotalActivity"
+            android:name=".common.zxing.picture.PickPictureTotalActivity"
             android:label="选择相册" />
         <activity
-            android:name="com.eims.shundian.common.zxing.picture.PickPictureActivity"
+            android:name=".common.zxing.picture.PickPictureActivity"
             android:label="照片" />
         <activity
-            android:name="com.eims.shundian.common.zxing.DeCodeActivity"
+            android:name=".common.zxing.DeCodeActivity"
             android:theme="@style/Theme.Transparent" />
         <activity
-            android:name="com.eims.shundian.common.zxing.BarcodeActivity"
+            android:name=".common.zxing.BarcodeActivity"
             android:label="barcode" />
-        <activity android:name="com.eims.shundian.common.zxing.ScannerActivity">
+        <activity android:name=".common.zxing.ScannerActivity">
             <intent-filter>
                 <action android:name="com.mylhyl.zxing.scanner.client.android.SCAN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name="com.eims.shundian.ui.activity.CityLocationActivity"></activity>
+        <activity android:name=".ui.activity.CityLocationActivity" />
+        <activity android:name=".ui.activity.ProductListActivity"></activity>
     </application>
 
 </manifest>

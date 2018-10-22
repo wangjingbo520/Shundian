@@ -8,8 +8,10 @@ import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 
+import com.eims.shundian.bean.BMapLocationBean;
 import com.eims.shundian.common.Constants;
 import com.eims.shundian.net.Urls;
+import com.google.gson.Gson;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
@@ -24,10 +26,18 @@ import java.util.List;
 public class LocationManageUtil {
     private Activity activity;
     private LocationManager lm;
+    private LocationLisntenser locationLisntenser;
 
-    public LocationManageUtil(Activity activity, LocationManager locationManager) {
+    public interface LocationLisntenser {
+        void sucessLocation(BMapLocationBean bMapLocationBean);
+
+        void failedLocation();
+    }
+
+    public LocationManageUtil(Activity activity, LocationManager locationManager, LocationLisntenser locationLisntenser) {
         this.activity = activity;
         this.lm = locationManager;
+        this.locationLisntenser = locationLisntenser;
     }
 
     public Location beginLocation() {
@@ -58,18 +68,27 @@ public class LocationManageUtil {
         return null;
     }
 
-
-    public void getCity(Location location) {
-        String url = Urls.BAIDU + "coords=" + location.getLatitude() + "," + location.getLongitude() + "&output=json&pois=1"
+    public void getCity(final Location location) {
+        //通过百度地图反编码，无需导入百度地图的包，直接请求接口
+        String url = Urls.BAIDU + "location=" + location.getLatitude() + "," + location.getLongitude() + "&output=json&pois=1"
                 + "&ak=" + Constants.BAIDU_AK + "&mcode=" + Constants.SHALL1;
-        Log.e("--->", url);
         OkGo.<String>get(url)
                 .tag(this)
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(Response<String> response) {
                         String resBody = response.body();
-                        Log.d("---->", resBody);
+                        if (locationLisntenser != null) {
+                            locationLisntenser.sucessLocation(new Gson().fromJson(resBody, BMapLocationBean.class));
+                        }
+                    }
+
+                    @Override
+                    public void onError(Response<String> response) {
+                        super.onError(response);
+                        if (locationLisntenser != null) {
+                            locationLisntenser.failedLocation();
+                        }
                     }
                 });
     }
