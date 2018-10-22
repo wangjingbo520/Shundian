@@ -26,7 +26,7 @@
                     android:orientation="horizontal"
                     android:padding="@dimen/x15">
 
-                    <com.eims.myapp.common.view.CircleImageView
+                    <com.eims.shundian.common.view.CircleImageView
                         android:layout_width="@dimen/x150"
                         android:layout_height="@dimen/x150"
                         android:src="@mipmap/ic_launcher" />
@@ -396,7 +396,7 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <com.eims.myapp.common.view.MyGridView
+                <com.eims.shundian.common.view.MyGridView
                     android:id="@+id/gridview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -36,4 +36,11 @@ public class GlideImageLoaderUtil {
                 .load(resId)
                 .into(imageView);
     }
+     public static void loadImageZxing(Context context, String url, ImageView imageView) {
+        Glide.with(context)
+                .load(url)
+                .into(imageView);
+    }
+
+
 }

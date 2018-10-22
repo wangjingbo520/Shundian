@@ -4,19 +4,41 @@ apply plugin: 'org.greenrobot.greendao'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.eims.myapp"
+        applicationId "com.eims.shundian"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+//    MD5: EF:7D:8D:CD:B2:13:64:3B:1A:DA:35:F8:B7:1D:D5:39
+//    SHA1: 98:2E:A8:39:85:F8:35:72:AC:CF:04:C7:40:FE:D3:26:37:D4:7B:33
+//    SHA256: E4:09:20:B1:3C:99:62:1D:73:ED:24:8F:57:ED:9E:87:D4:A2:91:05:09:0C:CF:39:89:A9:EB:53:3E:AD:9C:5B
+//    签名算法名称: SHA256withRSA
+//    版本: 3
+
+    signingConfigs {
+        commonConfig {
+            keyAlias 'Shundian'
+            keyPassword 'Shundian123456789'
+            storeFile file('Shundian.jks')
+            storePassword 'Shundian123456789'
+        }
+    }
+
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.commonConfig
+        }
+        debug {
+            signingConfig signingConfigs.commonConfig
         }
     }
+
 
     lintOptions {
         disable 'GoogleAppIndexingWarning'
@@ -54,5 +76,6 @@ dependencies {
     implementation('com.alibaba.android:vlayout:1.2.8@aar') {
         transitive = true
     }
+    //二维码扫码需要这个版本
     implementation files('libs/lite-http-3.0.1.jar')
 }
