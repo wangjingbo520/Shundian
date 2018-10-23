@@ -1,16 +1,18 @@
 package com.eims.shundian.ui.fragment;
 
 
+import android.content.Intent;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.ViewGroup;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.eims.shundian.R;
-import com.eims.shundian.adapter.commonmadapter.LQRAdapterForAbsListView;
-import com.eims.shundian.adapter.commonmadapter.LQRViewHolder;
-import com.eims.shundian.adapter.commonmadapter.LQRViewHolderForAbsListView;
-import com.eims.shundian.adapter.commonmadapter.OnItemClickListener;
+import com.eims.shundian.adapter.recyadapter.MyAdapter;
 import com.eims.shundian.base.BaseFragment;
-import com.eims.shundian.common.view.MyGridView;
+import com.eims.shundian.ui.activity.MyCollectionActivity;
+import com.eims.shundian.ui.activity.MyCommentActivity;
+import com.eims.shundian.ui.activity.SelfPromotionListActivity;
 
 import java.util.Arrays;
 
@@ -23,10 +25,10 @@ import butterknife.BindView;
  */
 public class MyFragment extends BaseFragment {
 
-    @BindView(R.id.gridview)
-    MyGridView gridview;
+    @BindView(R.id.recyclerView)
+    RecyclerView recyclerView;
     private String[] mTitles;
-    private LQRAdapterForAbsListView lqrAdapterForAbsListView;
+    private MyAdapter myAdapter;
 
     @Override
     public void initData() {
@@ -41,28 +43,29 @@ public class MyFragment extends BaseFragment {
     @Override
     public void initView(View view) {
         mTitles = getResources().getStringArray(R.array.my_title);
-        lqrAdapterForAbsListView = new LQRAdapterForAbsListView<String>(getContext(), Arrays.asList
-                (mTitles), R.layout
-                .item_my_gridview) {
+        recyclerView.setLayoutManager(new GridLayoutManager(mContext,4));
+        recyclerView.setAdapter(myAdapter = new MyAdapter(R.layout.item_my_gridview,Arrays.asList(mTitles)));
+        myAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
-            public void convert(LQRViewHolderForAbsListView helper, String item, int position) {
-                helper.setText(R.id.tvTitle, item);
-            }
-        };
-
-        lqrAdapterForAbsListView.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(LQRViewHolder helper, ViewGroup parent, View itemView, int
-                    position) {
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 switch (position) {
                     case 0:
+                        //我的收藏
+                        mContext.startActivity(new Intent(mContext,MyCollectionActivity.class));
+                        break;
+                    case 1:
+                        //自提列表
+                        startToActivity(SelfPromotionListActivity.class, false);
+                        break;
+                    case 2:
+                        //我的评价
+                        startToActivity(MyCommentActivity.class, false);
                         break;
                     default:
                         break;
                 }
             }
         });
-        gridview.setAdapter(lqrAdapterForAbsListView);
     }
 
 }

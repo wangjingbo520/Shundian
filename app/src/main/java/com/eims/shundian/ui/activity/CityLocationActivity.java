@@ -1,7 +1,6 @@
 package com.eims.shundian.ui.activity;
 
 import android.content.Context;
-import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -42,7 +41,8 @@ public class CityLocationActivity extends MyNetDataBaseActivity implements Locat
 
     @Override
     public void failedLocation() {
-        tvCity.setText("定位失败");
-
+        if (tvCity!=null){
+            tvCity.setText("定位失败");
+        }
     }
 }

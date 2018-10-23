@@ -111,7 +111,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.CityLocationActivity" />
-        <activity android:name=".ui.activity.ProductListActivity"></activity>
+        <activity android:name=".ui.activity.ProductListActivity" />
+        <activity android:name=".ui.activity.MyCollectionActivity" />
+        <activity android:name=".ui.activity.SelfPromotionListActivity" />
+        <activity android:name=".ui.activity.MyCommentActivity"></activity>
     </application>
 
 </manifest>
